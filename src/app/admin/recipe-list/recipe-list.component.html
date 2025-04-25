@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-lg-10">
+            <h1 class="text-center my-4">All Recipe List</h1>
+            <div class="d-flex justify-content-between">
+                <button routerLink="/admin/recipe/add" class="btn btn-primary">+ Add Recipe</button>
+                <input [(ngModel)]="searchRecipe" type="text" class="form-control w-25" placeholder="Search Recipe by their Name!!!">
+            </div>
+
+            <table class="table my-5 shadow">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Cuisine</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (recipe of allRecipes | search : searchRecipe; track $index; let i=$index) {
+                        <tr>
+                            <td>{{i+1}} </td>
+                            <td>{{recipe.name}} </td>
+                            <td><img [src]="recipe.image" width="70px" alt=""></td>
+                            <td>{{recipe.cuisine}} </td>
+                            <td>
+                                <button routerLink="/admin/recipe/{{recipe._id}}/edit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button (click)="removeRecipe(recipe._id)" class="btn btn-danger ms-3"><i class="fa-solid fa-trash "></i></button>
+                            </td>
+                        </tr>
+                    }
+                    @if ((allRecipes | search : searchRecipe).length == 0) {
+                        <div class="text-danger fw-bolder p-3">
+                            Recipe Not Found !!!
+                        </div>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row bg-success p-5 mb-5 mt-2">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+            <h1 class="fw-bolder text-light">The Easiest Way <br> To Make Your <br> Favorite Meal</h1>
+            <p style="text-align: justify ;" class="my-4 text-light">Discover 100+ recipes in your hand with the best
+                recipe. Help
+                you to find the easiest way to cook.</p>
+            <a routerLink="/all-recipes" class="btn text-light" style="background-color: darkgreen;">Explore our
+                Recipes</a>
+        </div>
+        <div class="col-lg-6">
+            <img class="w-50 landingImg" style="margin-left: 150px;"
+                src="https://www.pngall.com/wp-content/uploads/2/Healthy-Meal.png" alt="landingImg">
+        </div>
+    </div>
+
+    <!-- Popular Recipe -->
+    <div class="my-5 p-5">
+        <h1>Popular Recipe of the Week</h1>
+        <div class="d-flex justify-content-between mt-3">
+            <p>Our Most popular recipes of the week</p>
+            <a routerLink="/all-recipes">View All</a>
+        </div>
+        <div class="row my-3">
+            @for (recipes of allRecipes; track $index) {
+            <div class="col-lg-4 mt-3">
+                <div class="" style="width: 100%;">
+                    <img [src]="recipes.image" class="card-img-top" alt="Recipe Image">
+                    <div class="card-body mt-3">
+                        <h5>{{recipes.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="row d-flex align-items-center"
+        style="height: 400px; background-image: url('https://t3.ftcdn.net/jpg/07/58/26/62/360_F_758266271_yksdY7RLYIIY6jofjJorjylEDOvgcuze.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <div class="col-lg-6 ms-5 mt-5">
+            <div class="bg-light rounded p-5 w-75">
+                <h3>50+ Recipes That Very Quick And Fast</h3>
+                <p class="text-secondary mt-3">Find the perfect food ideas to start your day with the quick and easiest
+                    way.</p>
+            </div>
+        </div>
+        <div class="col-lg-6"></div>
+    </div>
+
+    <!-- Download App -->
+    <div class="my-5 row align-items-center text-light bg-success rounded p-5" style="height: 450px;">
+        <div class="col-lg-6">
+            <img height="350px"
+                src="https://toppng.com/uploads/thumbnail/android-app-on-google-play-11568829115kt4gig8l67.png" alt="">
+        </div>
+        <div class="col-lg-6 text-center">
+            <h1>Downlod App</h1>
+            <h5 class="mt-5">Download the App from App Store or <br> Google Play for a better experience</h5>
+            <img width="
+            150px"
+                src="https://freepngimg.com/download/android/67006-app-play-google-android-store-free-clipart-hd.png"
+                alt="">
+            <img width="
+            150px" src="https://benic360.com/wp-content/uploads/2020/06/apple-store-icon-png-8.png" alt="">
+        </div>
+    </div>
+
+    <!-- testimonials -->
+    <div class="text-center my-5">
+        <h1>Client Testimonials</h1>
+        <marquee behavior="" direction="">
+            <div class="d-flex my-5">
+                <div class="rounded border w-25 p-3 me-3">
+                    <h5>John Johnson</h5>
+                    <p>Very Usefull Website!!!</p>
+                </div>
+                <div class="rounded border w-25 p-3 me-3">
+                    <h5>John Johnson</h5>
+                    <p>Very Usefull Website!!!</p>
+                </div>
+                <div class="rounded border w-25 p-3 me-3">
+                    <h5>John Johnson</h5>
+                    <p>Very Usefull Website!!!</p>
+                </div>
+            </div>
+        </marquee>
+    </div>
+</div>
